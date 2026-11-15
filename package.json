@@ -1,0 +1,15 @@
+{
+  "name": "dental-delight-nagpur",
+  "version": "1.0.0",
+  "description": "Ultra-fast website for Dental Delight Superspeciality Dental Clinic, Nagpur",
+  "scripts": {
+    "dev": "tailwindcss -i ./src/input.css -o ./css/style.min.css --watch",
+    "build": "tailwindcss -i ./src/input.css -o ./css/style.min.css --minify"
+  },
+  "keywords": ["dental", "nagpur", "orthodontist", "invisalign", "fast-website"],
+  "author": "Dental Delight",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
+  }
+}
