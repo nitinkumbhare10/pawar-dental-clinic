@@ -1,13 +1,13 @@
 {
-  "name": "dental-delight-nagpur",
+  "name": "pawar-dental-clinic-nagpur",
   "version": "1.0.0",
-  "description": "Ultra-fast website for Dental Delight Superspeciality Dental Clinic, Nagpur",
+  "description": "Ultra-fast website for Pawar's Dental Clinic, Nagpur",
   "scripts": {
     "dev": "tailwindcss -i ./src/input.css -o ./css/style.min.css --watch",
     "build": "tailwindcss -i ./src/input.css -o ./css/style.min.css --minify"
   },
   "keywords": ["dental", "nagpur", "orthodontist", "invisalign", "fast-website"],
-  "author": "Dental Delight",
+  "author": "Pawar's Dental Clinic",
   "license": "ISC",
   "devDependencies": {
     "tailwindcss": "3.4.17"

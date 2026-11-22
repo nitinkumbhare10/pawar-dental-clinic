@@ -1,5 +1,5 @@
 /**
- * Dr. Aayas Dental Clinic - Automated Web App Logic
+ * Pawar's Dental Clinic - Automated Web App Logic
  * Enhanced with Tier 1 & Tier 2 UI/UX Implementations
  */
 
@@ -323,7 +323,7 @@ function clearDraft() {
 }
 
 /* ---------------- 9. APPOINTMENT BOOKING & INLINE VALIDATION (UX-1, UX-3) ---------------- */
-const STORAGE_KEY = 'dr_aayas_appointments_v1';
+const STORAGE_KEY = 'pawar_dental_appointments_v1';
 
 function getStoredAppointments() {
   try {
@@ -341,9 +341,9 @@ function saveAppointments(list) {
 function getInitialDummyAppointments() {
   return [
     {
-      id: 'AY-2026-8812',
+      id: 'PD-2026-8812',
       name: 'Kartik Sarker',
-      phone: '+91 9665194569',
+      phone: '08788572762',
       email: 'kartik.s@example.com',
       service: 'Root Canal Treatment (RCT)',
       date: '2026-11-09',
@@ -353,9 +353,9 @@ function getInitialDummyAppointments() {
       timestamp: '2026-11-06 14:30'
     },
     {
-      id: 'AY-2026-8813',
+      id: 'PD-2026-8813',
       name: 'Ashutosh Sharma',
-      phone: '+91 9822739739',
+      phone: '08788572762',
       email: 'ashutosh@example.com',
       service: 'Teeth Whitening',
       date: '2026-11-10',
@@ -518,7 +518,7 @@ function showConfirmationModal(booking, sendWhatsApp) {
 
   // WhatsApp formatted message
   const waText = encodeURIComponent(
-    `🏥 *NEW APPOINTMENT BOOKING - Dr. Aayas Dental Clinic*\n` +
+    `🏥 *NEW APPOINTMENT BOOKING - Pawar's Dental Clinic*\n` +
     `━━━━━━━━━━━━━━━━━━━━\n` +
     `👤 *Patient:* ${booking.name}\n` +
     `📞 *Phone:* ${booking.phone}\n` +
@@ -528,10 +528,10 @@ function showConfirmationModal(booking, sendWhatsApp) {
     `📝 *Notes:* ${booking.notes}\n` +
     `🆔 *Booking Ref:* ${booking.id}\n` +
     `━━━━━━━━━━━━━━━━━━━━\n` +
-    `_Sent via Dr. Aayas Dental Clinic Online Portal_`
+    `_Sent via Pawar's Dental Clinic Online Portal_`
   );
 
-  const clinicPhone = '919665194569';
+  const clinicPhone = '918788572762';
   const waUrl = `https://wa.me/${clinicPhone}?text=${waText}`;
 
   const sendBtn = document.getElementById('modalWhatsAppBtn');
@@ -542,9 +542,9 @@ function showConfirmationModal(booking, sendWhatsApp) {
   // Setup Google Calendar Link
   const gCalBtn = document.getElementById('modalCalendarBtn');
   if (gCalBtn) {
-    const title = encodeURIComponent(`Dental Appointment: ${booking.service} - Dr. Aayas Dental Clinic`);
-    const details = encodeURIComponent(`Dr. Aayas Dental Clinic Appointment\nDoctor: Dr. Sumeet Aya\nService: ${booking.service}\nPatient: ${booking.name}\nRef: ${booking.id}\nClinic Contact: +91 9665194569`);
-    const location = encodeURIComponent(`U 15, Shraddha Apartment, Old Pardi Naka, Pardi, Nagpur, Maharashtra 440035`);
+    const title = encodeURIComponent(`Dental Appointment: ${booking.service} - Pawar's Dental Clinic`);
+    const details = encodeURIComponent(`Pawar's Dental Clinic Appointment\nDoctor: Dr. Vinaysingh Pawar\nService: ${booking.service}\nPatient: ${booking.name}\nRef: ${booking.id}\nClinic Contact: 08788572762`);
+    const location = encodeURIComponent(`Rajat Medical Stores, Ekdant chamber, 1st floor, Ridge Rd, Raghuji Nagar, Nagpur, Maharashtra 440024`);
     const calUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}`;
     gCalBtn.href = calUrl;
   }
@@ -704,7 +704,7 @@ function renderAdminAppointments() {
         </td>
         <td>
           <div style="display:flex; gap:0.4rem;">
-            <a href="https://wa.me/${item.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(item.name)},%20this%20is%20Dr.%20Aayas%20Dental%20Clinic%20regarding%20your%20appointment." target="_blank" class="btn btn-whatsapp" style="padding:0.25rem 0.6rem; font-size:0.75rem;" title="Chat WhatsApp">
+            <a href="https://wa.me/${item.phone.replace(/[^0-9]/g, '')}?text=Hello%20${encodeURIComponent(item.name)},%20this%20is%20Pawar%27s%20Dental%20Clinic%20regarding%20your%20appointment." target="_blank" class="btn btn-whatsapp" style="padding:0.25rem 0.6rem; font-size:0.75rem;" title="Chat WhatsApp">
               <i class="fab fa-whatsapp"></i>
             </a>
             <button onclick="toggleAppointmentStatus(${originalIndex})" class="btn btn-outline" style="padding:0.25rem 0.6rem; font-size:0.75rem;" title="Change Status">
@@ -778,7 +778,7 @@ function exportAppointmentsToCSV() {
   const encodedUri = encodeURI(csvContent);
   const link = document.createElement("a");
   link.setAttribute("href", encodedUri);
-  link.setAttribute("download", `Dr_Aayas_Appointments_${new Date().toISOString().split('T')[0]}.csv`);
+  link.setAttribute("download", `Pawar_Dental_Appointments_${new Date().toISOString().split('T')[0]}.csv`);
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
@@ -824,15 +824,15 @@ window.downloadClinicVCard = function() {
   const vcardData = [
     'BEGIN:VCARD',
     'VERSION:3.0',
-    'FN:Dr. Aayas Dental Clinic (Dr. Sumeet Aya)',
-    'N:Aya;Sumeet;Dr.;;',
-    'ORG:Dr. Aayas Dental Clinic',
+    'FN:Pawar's Dental Clinic (Dr. Vinaysingh Pawar)',
+    'N:Pawar;Vinaysingh;Dr.;;',
+    'ORG:Pawar's Dental Clinic',
     'TITLE:Dental Surgeon & Implantologist',
-    'TEL;TYPE=CELL,VOICE:+919665194569',
-    'TEL;TYPE=WORK,VOICE:+919822739739',
-    'EMAIL;TYPE=PREF,INTERNET:drssumeetaya@gmail.com',
-    'ADR;TYPE=WORK:;;U 15 Shraddha Apartment HB Town Sq Near Grulaxmi Enterprises Old Pardi Naka Pardi;Nagpur;Maharashtra;440035;India',
-    'URL:https://tapifyworld.com/dr-aayas-dental-clinic',
+    'TEL;TYPE=CELL,VOICE:+918788572762',
+    'TEL;TYPE=WORK,VOICE:08788572762',
+    'EMAIL;TYPE=PREF,INTERNET:pawardentalclinic@gmail.com',
+    'ADR;TYPE=WORK:;;Rajat Medical Stores Ekdant chamber 1st floor Ridge Rd Raghuji Nagar;Nagpur;Maharashtra;440024;India',
+    'URL:https://maps.app.goo.gl/tgZiGWuDjUzqfUL9A',
     'NOTE:Advanced Dental Care • Implants • Root Canal • Teeth Whitening • Pediatric Care',
     'END:VCARD'
   ].join('\r\n');
@@ -841,7 +841,7 @@ window.downloadClinicVCard = function() {
   const url = URL.createObjectURL(blob);
   const a = document.createElement('a');
   a.href = url;
-  a.download = 'Dr_Aayas_Dental_Clinic.vcf';
+  a.download = 'Pawar_Dental_Clinic.vcf';
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
